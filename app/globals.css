@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@theme {
+  /* En v4, l'injection des couleurs personnalisées se fait proprement ici */
+  --color-tennis-blue: #074175;
+  --color-tennis-lime: #CEDA63;
+  --color-tennis-dark: #111111;
+}
+
 
 @layer base {
   @font-face {
@@ -34,27 +41,15 @@
     font-display: swap;
   }
   
-  /* Force l'application d'Inter sur l'ensemble de l'application */
-  html, body {
+  /* Force l'application d'Inter sur l'ensemble de l'application sans répétition */
+  html, body, * {
     font-family: 'Inter', sans-serif;
   }
-}
-
-*{
-  font-family: 'Inter', sans-serif;
 }
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  font-family: 'Inter', sans-serif;
-}
-
-@theme {
-  /* Vos couleurs personnalisées */
-  --color-tennis-blue: #074175;
-  --color-tennis-lime: #CEDA63;
-  --color-tennis-dark: #111111; /* Un noir adouci, plus premium que le #000 pur */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -63,9 +58,7 @@
   }
 }
 
-
 body {
   background: white;
   color: var(--foreground);
-  font-family: 'Inter', sans-serif;
 }

@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
               </Link>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
-              Premium coaching, clinics, and game development under the Florida sun.
+              Premium coaching, clinics, and game development under the Arlington sun.
             </p>
           </div>
 
