@@ -33,7 +33,7 @@ const Home: React.FC = () => {
       title: "Group Clinics",
       desc: "High-energy, tactical group sessions with players of your skill level under the sun.",
       features: ["Max 4 players", "Match play drills", "Weekly updates"],
-      price: "$35 / Session",
+      price: "$45 / Session",
       icon: <CircleDot size={24} />
     }
   ];

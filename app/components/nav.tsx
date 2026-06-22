@@ -78,7 +78,7 @@ const Nav: React.FC = () => {
             <button 
               onClick={() => setShowLogin(true)}
               className={`hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-lg text-white text-[10px] font-black uppercase tracking-widest transition-all hover:brightness-110 active:scale-95 shadow-sm ${
-                isOpen ? 'bg-tennis-lime !text-tennis-blue' : 'bg-tennis-blue'
+                isOpen ? 'bg-tennis-lime text-tennis-blue!' : 'bg-tennis-blue'
               }`}
             >
               <LogIn size={14} /> Portal

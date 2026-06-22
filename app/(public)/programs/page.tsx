@@ -39,7 +39,7 @@ const ALL_PROGRAMS: Program[] = [
     title: "Private Coaching",
     tagline: "One-on-One Custom Mastery",
     desc: "Accelerate your technique, positioning, and tactical awareness with drills engineered specifically for your game profile.",
-    duration: "60 / 90 Mins",
+    duration: "1 Hour",
     intensity: "Custom",
     price: "$90",
     priceUnit: " / session",
@@ -55,7 +55,7 @@ const ALL_PROGRAMS: Program[] = [
     desc: "Drill with players of your exact skill level. Master patterns of play, doubles communication, and competitive live-ball scenarios.",
     duration: "2 Hours",
     intensity: "High",
-    price: "$35",
+    price: "$45",
     priceUnit: " / session",
     badge: "Max 4 per court",
     features: ["Live-ball situational drills", "Point-play analysis", "Dynamic footwork blocks"],
@@ -69,7 +69,7 @@ const ALL_PROGRAMS: Program[] = [
     desc: "The ultimate high-energy workout merging non-stop tennis drills with high-intensity cardiovascular music and training.",
     duration: "60 Mins",
     intensity: "Extreme",
-    price: "$25",
+    price: "$35",
     priceUnit: " / session",
     badge: "Fitness Focus",
     features: ["Heart-rate tracking dynamic", "Calorie-burning structures", "All skill levels welcome"],
@@ -118,7 +118,7 @@ const Programs: React.FC = () => {
           </div>
           <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-none mb-6">
             CHOOSE YOUR <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#CCFF00] to-[#002F6C]">PATHWAY.</span>
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#CCFF00] to-[#002F6C]">PATHWAY.</span>
           </h1>
           <p className="text-gray-500 text-lg leading-relaxed">
             From precision technical micro-adjustments in private lessons to high-octane competitive group structures, select the program built for your evolution.
@@ -197,7 +197,7 @@ const Programs: React.FC = () => {
                   <div className="space-y-3.5 mb-8">
                     {prog.features.map((feat, index) => (
                       <div key={index} className="flex items-center gap-3 text-xs font-bold text-gray-600">
-                        <CheckCircle2 size={16} className="text-[#CCFF00] stroke-[3] shrink-0 bg-[#002F6C] rounded-full" />
+                        <CheckCircle2 size={16} className="text-[#CCFF00] stroke-3 shrink-0 bg-[#002F6C] rounded-full" />
                         <span>{feat}</span>
                       </div>
                     ))}
