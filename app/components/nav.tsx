@@ -50,7 +50,7 @@ const Nav: React.FC = () => {
                 height={100}
               />
               <Image 
-                src="/images/Log.png" 
+                src="/images/Log_v2.png" 
                 alt="Better Tennis Academy" 
                 className="block sm:hidden w-24 h-auto transition-all" 
                 width={100}
