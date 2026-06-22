@@ -23,7 +23,7 @@ const Nav: React.FC = () => {
   }, [isOpen, showLogin]);
 
   const links = [
-    { name: 'Programs', href: '/#programs' },
+    { name: 'Programs', href: '/programs' },
     { name: 'About Us', href: '/about' },
     { name: 'Contact', href: '/contact' }
   ];
