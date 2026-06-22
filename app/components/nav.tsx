@@ -33,7 +33,7 @@ const Nav: React.FC = () => {
       <nav 
         className={`fixed top-0 left-0 w-full z-[200] transition-all duration-500 ${
           isScrolled || isOpen 
-            ? 'py-3 bg-white shadow-md ' 
+            ? 'py-3 bg-white shadow-md' 
             : 'py-5 bg-white'
         }`}
       >
@@ -41,31 +41,35 @@ const Nav: React.FC = () => {
           
           {/* --- LOGO --- */}
           <div className="flex items-center z-[210]">
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link href="/" className="flex items-center gap-2 group" onClick={() => setIsOpen(false)}>
+              {/* Desktop View */}
               <Image 
                 src="/images/Log.png" 
                 alt="Better Tennis Academy" 
                 className="hidden sm:block w-24 md:w-28 h-auto transition-all" 
                 width={100}
                 height={100}
+                priority
               />
+              {/* Mobile View - Bascule dynamique sur Log_v2 si le menu est ouvert */}
               <Image 
-                src="/images/Log_v2.png" 
+                src={isOpen ? "/images/Log_v2.png" : "/images/Log.png"} 
                 alt="Better Tennis Academy" 
                 className="block sm:hidden w-24 h-auto transition-all" 
                 width={100}
                 height={100}
+                priority
               />
             </Link>
           </div>
 
           {/* --- DESKTOP MENU --- */}
-          <div className="hidden lg:flex items-center gap-6 bg-black/5 px-6 py-2 rounded-full backdrop-blur-sm border border-black/5">
+          <div className="hidden lg:flex items-center gap-6 bg-[#002F6C]/5 px-6 py-2 rounded-full backdrop-blur-sm border border-[#002F6C]/5">
             {links.map((link) => (
               <Link 
                 key={link.name}
                 href={link.href}
-                className="text-[10px] font-black uppercase tracking-widest text-tennis-blue hover:text-tennis-lime transition-all"
+                className="text-[10px] font-black uppercase tracking-widest text-[#002F6C] hover:text-[#CCFF00] transition-all"
               >
                 {link.name}
               </Link>
@@ -77,8 +81,8 @@ const Nav: React.FC = () => {
             {/* Portal Button */}
             <button 
               onClick={() => setShowLogin(true)}
-              className={`hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-lg text-white text-[10px] font-black uppercase tracking-widest transition-all hover:brightness-110 active:scale-95 shadow-sm ${
-                isOpen ? 'bg-tennis-lime text-tennis-blue!' : 'bg-tennis-blue'
+              className={`hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-lg text-white text-[10px] font-black uppercase tracking-widest transition-all hover:brightness-110 active:scale-95 shadow-sm cursor-pointer ${
+                isOpen ? 'bg-[#CCFF00] !text-[#002F6C]' : 'bg-[#002F6C]'
               }`}
             >
               <LogIn size={14} /> Portal
@@ -87,15 +91,15 @@ const Nav: React.FC = () => {
             {/* Hamburger Button */}
             <button 
               onClick={() => setIsOpen(!isOpen)}
-              className={`flex lg:hidden w-10 h-10 items-center justify-center rounded-lg transition-all ${
-                isOpen ? 'bg-transparent' : 'bg-tennis-blue'
+              className={`flex lg:hidden w-10 h-10 items-center justify-center rounded-lg transition-all cursor-pointer ${
+                isOpen ? 'bg-transparent' : 'bg-[#002F6C]'
               }`}
               aria-label="Toggle Menu"
             >
               {isOpen ? (
-                <X size={26} className="text-tennis-blue" strokeWidth={2.5} />
+                <X size={26} className="text-[#002F6C]" strokeWidth={2.5} />
               ) : (
-                <Menu size={24} color="white" strokeWidth={2.5} />
+                <Menu size={24} className="text-white" strokeWidth={2.5} />
               )}
             </button>
           </div>
@@ -103,20 +107,20 @@ const Nav: React.FC = () => {
 
         {/* --- OVERLAY MOBILE MENU --- */}
         <div 
-          className={`fixed inset-0 bg-tennis-dark z-[205] transition-transform duration-500 ease-in-out lg:hidden flex flex-col justify-between pt-28 pb-12 px-6 sm:px-12 ${
+          className={`fixed inset-0 bg-[#002F6C] z-[205] transition-transform duration-500 ease-in-out lg:hidden flex flex-col justify-between pt-28 pb-12 px-6 sm:px-12 ${
             isOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
           {/* Menu Items Group */}
           <div className="flex flex-col gap-6 justify-center flex-1">
-            <p className="text-tennis-lime text-[10px] font-black uppercase tracking-[0.5em] opacity-40">Navigation</p>
+            <p className="text-[#CCFF00] text-[10px] font-black uppercase tracking-[0.5em] opacity-40">Navigation</p>
             
             {links.map((link, i) => (
               <Link 
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`text-4xl sm:text-5xl font-black text-white tracking-tighter hover:text-tennis-lime transition-all ${
+                className={`text-4xl sm:text-5xl font-black text-white tracking-tighter hover:text-[#CCFF00] transition-all ${
                   isOpen ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'
                 }`}
                 style={{ transitionDelay: isOpen ? `${i * 75}ms` : '0ms' }}
@@ -128,7 +132,7 @@ const Nav: React.FC = () => {
             {/* Client Portal in Mobile Menu */}
             <button 
               onClick={() => { setIsOpen(false); setShowLogin(true); }}
-              className="sm:hidden text-3xl font-black text-tennis-lime flex items-center gap-3 transition-all text-left mt-4"
+              className="sm:hidden text-3xl font-black text-[#CCFF00] flex items-center gap-3 transition-all text-left mt-4 cursor-pointer"
             >
               Client Portal <LogIn size={24} />
             </button>
@@ -140,7 +144,7 @@ const Nav: React.FC = () => {
             <Link 
               href="/#contact" 
               onClick={() => setIsOpen(false)} 
-              className="text-lg font-black text-tennis-lime flex items-center gap-3 group pt-2"
+              className="text-lg font-black text-[#CCFF00] flex items-center gap-3 group pt-2"
             >
               Book Court Time <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
             </Link>
@@ -155,17 +159,17 @@ const Nav: React.FC = () => {
       {showLogin && (
         <div className="fixed inset-0 z-[300] flex items-center justify-center p-4">
           <div 
-            className="absolute inset-0 bg-tennis-dark/90 backdrop-blur-sm transition-opacity"
+            className="absolute inset-0 bg-[#002F6C]/90 backdrop-blur-sm transition-opacity"
             onClick={() => setShowLogin(false)}
           ></div>
           
           <div className="relative bg-white w-full max-w-sm sm:max-w-md rounded-[2rem] overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-300">
             <div className="p-6 sm:p-10">
               <div className="flex justify-between items-center mb-8">
-                <h2 className="text-2xl sm:text-3xl font-black text-tennis-blue tracking-tighter">
-                  Client <span className="text-tennis-lime">Portal</span>
+                <h2 className="text-2xl sm:text-3xl font-black text-[#002F6C] tracking-tighter">
+                  Client <span className="text-[#CCFF00] bg-[#002F6C] px-2 py-0.5 rounded-md">Portal</span>
                 </h2>
-                <button onClick={() => setShowLogin(false)} className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+                <button onClick={() => setShowLogin(false)} className="p-2 hover:bg-gray-100 rounded-full transition-colors cursor-pointer">
                   <X size={20} />
                 </button>
               </div>
@@ -175,7 +179,7 @@ const Nav: React.FC = () => {
                   <label className="text-[10px] font-black uppercase tracking-widest text-gray-400">Email Address</label>
                   <div className="relative">
                     <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
-                    <input type="email" className="w-full pl-11 pr-4 py-3.5 bg-gray-50 border border-gray-100 rounded-xl focus:ring-2 focus:ring-tennis-lime outline-none text-sm transition-all" placeholder="player@tennis.com" />
+                    <input type="email" className="w-full pl-11 pr-4 py-3.5 bg-gray-50 border border-gray-100 rounded-xl focus:ring-2 focus:ring-[#CCFF00] outline-none text-sm transition-all" placeholder="player@tennis.com" />
                   </div>
                 </div>
 
@@ -183,11 +187,11 @@ const Nav: React.FC = () => {
                   <label className="text-[10px] font-black uppercase tracking-widest text-gray-400">Password</label>
                   <div className="relative">
                     <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
-                    <input type="password" className="w-full pl-11 pr-4 py-3.5 bg-gray-50 border border-gray-100 rounded-xl focus:ring-2 focus:ring-tennis-lime outline-none text-sm transition-all" placeholder="••••••••" />
+                    <input type="password" className="w-full pl-11 pr-4 py-3.5 bg-gray-50 border border-gray-100 rounded-xl focus:ring-2 focus:ring-[#CCFF00] outline-none text-sm transition-all" placeholder="••••••••" />
                   </div>
                 </div>
 
-                <button className="w-full py-4 bg-tennis-blue text-white text-xs font-black uppercase tracking-[0.2em] rounded-xl hover:bg-tennis-dark transition-all mt-4 active:scale-95 shadow-lg shadow-tennis-blue/10">
+                <button className="w-full py-4 bg-[#002F6C] text-white text-xs font-black uppercase tracking-[0.2em] rounded-xl hover:bg-[#001F47] transition-all mt-4 active:scale-95 shadow-lg shadow-[#002F6C]/10 cursor-pointer">
                   Sign In
                 </button>
               </form>
